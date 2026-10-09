@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:lab2_todo/todo.dart';
+
 void printMenu() {
   print('');
   print('ToDo список');
@@ -19,8 +20,8 @@ void addTodo(List<Todo> todos) {
     return;
   }
 
-  int newId = todos.isEmpty ? 1 : todos.last.id + 1;
-  todos.add(Todo(id: newId, title: input.trim()));
+  //int newId = todos.isEmpty ? 1 : todos.last.id + 1;
+  todos.add(Todo(title: input.trim()));
   print('Задача добавлена!');
 }
 
@@ -93,12 +94,24 @@ void main() {
     String command = input.trim().toLowerCase();
     if (command.isEmpty) continue;
     switch (command) {
-      case 'add': addTodo(todos); break;
-      case 'list': listTodos(todos); break;
-      case 'done': completeTodo(todos); break;
-      case 'delete': deleteTodo(todos); break;
-      case 'exit': print('До свидания!'); return;
-      default: printMenu(); print('Неизвестная команда.');
+      case 'add':
+        addTodo(todos);
+        break;
+      case 'list':
+        listTodos(todos);
+        break;
+      case 'done':
+        completeTodo(todos);
+        break;
+      case 'delete':
+        deleteTodo(todos);
+        break;
+      case 'exit':
+        print('До свидания!');
+        return;
+      default:
+        printMenu();
+        print('Неизвестная команда.');
     }
   }
 }
