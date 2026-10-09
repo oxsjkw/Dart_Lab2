@@ -4,8 +4,8 @@ class Todo {
   bool isDone;
   static int _counter = 0;
   Todo({required this.title}) 
-  : id = ++_counter,
-    isDone = false;
+    : id = ++_counter,
+      isDone = false;
   String get status => isDone ? 'выполнено' : 'в процессе';
   @override
 String toString() {
